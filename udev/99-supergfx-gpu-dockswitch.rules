@@ -1,0 +1,5 @@
+# supergfx-gpu-dockswitch: runtime events only record the desired GPU mode;
+# they never switch it. Detached via systemd-run so a slow policy run
+# can never stall the udev worker.
+SUBSYSTEM=="drm", ACTION=="change", RUN+="/usr/bin/systemd-run --no-block --collect /usr/local/bin/supergfx-gpu-dockswitch.sh"
+SUBSYSTEM=="power_supply", ATTR{type}=="Mains", RUN+="/usr/bin/systemd-run --no-block --collect /usr/local/bin/supergfx-gpu-dockswitch.sh"

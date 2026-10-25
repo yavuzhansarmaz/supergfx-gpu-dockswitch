@@ -1,0 +1,14 @@
+[Unit]
+Description=supergfx-gpu-dockswitch GPU mode preparation before supergfxd (daemon config intent)
+Documentation=file:/usr/local/bin/supergfx-gpu-dockswitch-pre.sh
+Before=supergfxd.service
+After=systemd-udevd.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/supergfx-gpu-dockswitch-pre.sh
+TimeoutStartSec=30
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target

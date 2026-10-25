@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=supergfx-gpu-dockswitch GPU mode check
+Comment=Notify when the pending supergfxctl mode differs from the active mode
+Exec=__HOME__/.local/bin/supergfx-gpu-dockswitch-login-check.sh
+X-GNOME-Autostart-enabled=true

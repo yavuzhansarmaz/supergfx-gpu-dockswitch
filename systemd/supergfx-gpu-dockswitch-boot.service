@@ -1,0 +1,15 @@
+[Unit]
+Description=supergfx-gpu-dockswitch GPU mode post-daemon verification (no mode changes)
+Documentation=file:/usr/local/bin/supergfx-gpu-dockswitch.sh
+Wants=supergfxd.service
+After=supergfxd.service systemd-udevd.service
+Before=display-manager.service graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/supergfx-gpu-dockswitch-boot.sh
+TimeoutStartSec=120
+TimeoutStopSec=15
+
+[Install]
+WantedBy=multi-user.target

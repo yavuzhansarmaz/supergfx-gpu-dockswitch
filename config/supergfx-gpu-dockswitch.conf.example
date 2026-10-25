@@ -1,0 +1,23 @@
+# supergfx-gpu-dockswitch configuration. Copy to /etc/supergfx-gpu-dockswitch.conf (root-owned,
+# mode 0644) and uncomment what you need. Every line is optional; the
+# defaults below match an AMD iGPU + NVIDIA dGPU laptop.
+# This file is sourced by bash running as root -- keep it root-owned.
+
+# Desktop user that receives mode-change notifications. Leave unset to
+# auto-detect the owner of the first user session bus (uid >= 1000).
+#SUPERGFX_GPU_DOCKSWITCH_NOTIFY_USER="your-username"
+
+# PCI vendor ids of the discrete and integrated GPUs (see:
+# cat /sys/class/drm/card*/device/vendor).
+#   0x10de = NVIDIA (dGPU default), 0x1002 = AMD, 0x8086 = Intel.
+# Intel iGPU support is provided by configuration only and is untested
+# by the author; reports welcome.
+#SUPERGFX_GPU_DOCKSWITCH_DGPU_VENDOR="0x10de"
+#SUPERGFX_GPU_DOCKSWITCH_IGPU_VENDOR="0x1002"
+
+# Seconds a runtime policy change must stay stable before it is
+# recorded (debounces AC/display flaps). Default: 45.
+#SUPERGFX_GPU_DOCKSWITCH_STABLE_S="45"
+
+# Timeout in seconds for each supergfxctl query. Default: 3.
+#SUPERGFX_GPU_DOCKSWITCH_GET_TIMEOUT_S="3"
